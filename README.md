@@ -1,7 +1,5 @@
 ## Hi there 👋
 
-## Hi there!
-
 I'm a full-stack web developer with a passion for building dynamic and user-friendly web applications. I'm proficient in the MERN stack (MongoDB, Express, React, Node.js) and have experience crafting both the front-end and back-end of web applications.
 
 **My Skills:**
