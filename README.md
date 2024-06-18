@@ -13,9 +13,9 @@ I'm a full-stack web developer with a passion for building dynamic and user-frie
 * **Back-End:**
     * Node.js
     * Express.js
-    * MongoDB (with Mongoose)
 * **Databases:**
     * SQL (familiarity with relational databases)
+    * MongoDB (with Mongoose)
 
 **Additionally:**
 
