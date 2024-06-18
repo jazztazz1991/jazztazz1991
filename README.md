@@ -32,6 +32,6 @@ I'm a full-stack web developer with a passion for building dynamic and user-frie
 
 This repository might showcase some of my personal projects or code samples. You can also find me on:
 
-* (Optional: Link to your LinkedIn profile or portfolio website using markdown syntax like this: [Your Name](link to your website))
+* [Cody Chase](https://www.linkedin.com/in/jazztazz/)
 
 I'm always open to connecting and discussing new projects.
