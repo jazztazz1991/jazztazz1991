@@ -1,16 +1,39 @@
 ## Hi there 👋
 
-<!--
-**jazztazz1991/jazztazz1991** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Hi there!
 
-Here are some ideas to get you started:
+I'm a full-stack web developer with a passion for building dynamic and user-friendly web applications. I'm proficient in the MERN stack (MongoDB, Express, React, Node.js) and have experience crafting both the front-end and back-end of web applications.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**My Skills:**
+
+* **Front-End:**
+    * React.js
+    * Tailwind CSS (for utility-first styling)
+    * HTML5
+    * CSS3
+    * JavaScript (ES6+)
+* **Back-End:**
+    * Node.js
+    * Express.js
+    * MongoDB (with Mongoose)
+* **Databases:**
+    * SQL (familiarity with relational databases)
+
+**Additionally:**
+
+* I'm always eager to learn new technologies and frameworks.
+* I have a strong understanding of web development best practices, including code organization, maintainability, and testing.
+* I'm a team player and enjoy collaborating with designers and other developers to bring projects to life.
+
+**Looking for:**
+
+* Opportunities to build innovative and impactful web applications.
+* Environments that foster collaboration and learning.
+
+**Feel free to browse my projects!**
+
+This repository might showcase some of my personal projects or code samples. You can also find me on:
+
+* (Optional: Link to your LinkedIn profile or portfolio website using markdown syntax like this: [Your Name](link to your website))
+
+I'm always open to connecting and discussing new projects.
