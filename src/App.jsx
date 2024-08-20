@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -20,8 +19,8 @@ const App = () => {
 					<About />
 					<Technologies />
 					<Experience />
-          <Projects />
-          <Contact />
+					<Projects />
+					<Contact />
 				</div>
 			</div>
 		</>
