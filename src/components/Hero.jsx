@@ -1,65 +1,80 @@
 import { HERO_CONTENT } from '../constants';
-import profilePic from '../assets/kevinRushProfile.png';
-import { motion } from 'framer-motion'; // Import the Framer Motion library
+import profilePic from '../assets/codychase.jpg';
+import { motion } from 'framer-motion';
 
-const container = (delay) => ({
-	hidden: { x: -100, opacity: 0 },
-	visible: {
-		x: 0,
-		opacity: 1,
-		transition: {
-			delay: delay,
-			duration: 0.5,
-		},
-	},
+const fade = (delay) => ({
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay } },
 });
 
 const Hero = () => {
-	return (
-		<div className='border-b border-neutral-900 pb-4 lg:mb-35'>
-			<div className='flex flex-wrap'>
-				<div className='w-full lg:w-1/2'>
-					<div className='flex flex-col items-center lg:items-start'>
-						<motion.h1
-							variants={container(0)}
-							initial='hidden'
-							animate='visible'
-							className='pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl'
-						>
-							Cody Chase
-						</motion.h1>
-						<motion.span
-							variants={container(0.5)}
-							initial='hidden'
-							animate='visible'
-							className='bg-gradient-to-r from-pink-300 via-slate-500 to bg-cyan-400 bg-clip-text text-4xl tracking-tight text-transparent'
-						>
-							Full Stack Developer
-						</motion.span>
-						<motion.p
-							variants={container(1)}
-							initial='hidden'
-							animate='visible'
-							className='my-2 max-w-xl py-6 font-light tracking-tighter'
-						>
-							{HERO_CONTENT}
-						</motion.p>
-					</div>
-				</div>
-				<div className='w-full lg:w-1/2 lg:p-8'>
-					<div className='flex justify-center'>
-						<motion.img
-							initial={{ x: 100, opacity: 0 }}
-							animate={{ x: 0, opacity: 1 }}
-							transition={{ delay: 1.2, duration: 1 }}
-							src={profilePic}
-							alt='Profile Picture'
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <section className='pb-24 pt-4'>
+      <div className='flex flex-wrap items-center gap-12 lg:flex-nowrap'>
+        <div className='flex flex-col items-center text-center lg:items-start lg:text-left'>
+          <motion.p
+            variants={fade(0)}
+            initial='hidden'
+            animate='visible'
+            className='mb-3 text-xs uppercase tracking-widest'
+            style={{ color: 'var(--color-muted)' }}
+          >
+            Based in Orlando, FL
+          </motion.p>
+          <motion.h1
+            variants={fade(0.1)}
+            initial='hidden'
+            animate='visible'
+            className='pb-4 text-6xl font-thin tracking-tight font-heading lg:text-8xl'
+            style={{ color: 'var(--color-text)' }}
+          >
+            Cody Chase
+          </motion.h1>
+          <motion.span
+            variants={fade(0.2)}
+            initial='hidden'
+            animate='visible'
+            className='gradient-text mb-6 text-3xl tracking-tight'
+          >
+            Full Stack Developer
+          </motion.span>
+          <motion.p
+            variants={fade(0.3)}
+            initial='hidden'
+            animate='visible'
+            className='mb-10 max-w-xl leading-relaxed'
+            style={{ color: 'var(--color-muted)' }}
+          >
+            {HERO_CONTENT}
+          </motion.p>
+          <motion.div
+            variants={fade(0.4)}
+            initial='hidden'
+            animate='visible'
+            className='flex flex-wrap gap-4'
+          >
+            <a href='#projects' className='btn-primary'>View Projects</a>
+            <a href='#contact' className='btn-ghost'>Get in Touch</a>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className='w-full lg:w-auto flex justify-center lg:justify-end flex-shrink-0'
+        >
+          <div className='hero-photo-frame w-72 lg:w-80'>
+            <img
+              src={profilePic}
+              alt='Cody Chase'
+              className='w-full h-full object-cover'
+            />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

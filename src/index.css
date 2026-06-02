@@ -1,9 +1,1187 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════
+   THEME VARIABLES
+═══════════════════════════════════════ */
+
 :root {
-  font-family: "Inter", sans-serif;
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-surface-hover: #1a1a1a;
+  --color-accent: #06b6d4;
+  --color-accent-muted: rgba(6, 182, 212, 0.08);
+  --color-text: #e5e5e5;
+  --color-muted: #737373;
+  --color-border: #262626;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+.theme-rs3 {
+  --color-bg: #120e08;
+  --color-surface: #1e1610;
+  --color-surface-hover: #281e14;
+  --color-accent: #c9a227;
+  --color-accent-muted: rgba(201, 162, 39, 0.08);
+  --color-text: #e8d9b0;
+  --color-muted: #8b7050;
+  --color-border: #6a4a14;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+.theme-satisfactory {
+  --color-bg: #050a10;
+  --color-surface: #0a1520;
+  --color-surface-hover: #0f1e2e;
+  --color-accent: #e8870a;
+  --color-accent-muted: rgba(232, 135, 10, 0.08);
+  --color-text: #b8ccd8;
+  --color-muted: #4a6a80;
+  --color-border: #1a2e42;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+.theme-warhammer {
+  --color-bg: #050c06;
+  --color-surface: #0a1a0b;
+  --color-surface-hover: #0f2210;
+  --color-accent: #c4922a;
+  --color-accent-muted: rgba(196, 146, 42, 0.08);
+  --color-text: #d4c08a;
+  --color-muted: #6a5838;
+  --color-border: #3a2808;
+  --font-heading: 'Cinzel Decorative', cursive;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════
+   BACKGROUND LAYERS
+═══════════════════════════════════════ */
+
+/* Glow */
+.theme-bg-glow {
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+}
+.theme-rs3 .theme-bg-glow {
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(201, 162, 39, 0.12) 0%, transparent 65%);
+}
+.theme-satisfactory .theme-bg-glow {
+  background:
+    radial-gradient(ellipse 50% 40% at 80% 5%, rgba(232, 135, 10, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 20% at 10% 80%, rgba(232, 135, 10, 0.04) 0%, transparent 50%);
+}
+.theme-warhammer .theme-bg-glow {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(20, 70, 20, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 90%, rgba(196, 146, 42, 0.06) 0%, transparent 50%);
+}
+
+/* Grid */
+.theme-bg-grid { opacity: 0; pointer-events: none; }
+
+.theme-satisfactory .theme-bg-grid {
+  opacity: 1;
+  background-image:
+    /* major lines every 160px */
+    linear-gradient(rgba(232, 135, 10, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 135, 10, 0.07) 1px, transparent 1px),
+    /* minor lines every 40px */
+    linear-gradient(rgba(232, 135, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 135, 10, 0.03) 1px, transparent 1px);
+  background-size: 160px 160px, 160px 160px, 40px 40px, 40px 40px;
+}
+
+/* Texture */
+.theme-bg-texture { opacity: 0; pointer-events: none; }
+
+/* RS3 subtle stone grid */
+.theme-rs3 .theme-bg-texture {
+  opacity: 1;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(120, 80, 20, 0.04) 79px, rgba(120, 80, 20, 0.04) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(120, 80, 20, 0.03) 79px, rgba(120, 80, 20, 0.03) 80px);
+}
+
+/* Warhammer worn stone */
+.theme-warhammer .theme-bg-texture {
+  opacity: 1;
+  background-image:
+    repeating-radial-gradient(circle at 15% 25%, rgba(40, 100, 40, 0.06) 0px, transparent 300px),
+    repeating-radial-gradient(circle at 85% 75%, rgba(30, 80, 30, 0.05) 0px, transparent 400px),
+    repeating-radial-gradient(circle at 50% 50%, rgba(60, 40, 0, 0.04) 0px, transparent 500px);
+}
+
+/* ═══════════════════════════════════════
+   SECTION DIVIDERS (.portfolio-section)
+═══════════════════════════════════════ */
+
+.portfolio-section {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 6rem;
+}
+
+/* RS3: gradient gold centerline */
+.theme-rs3 .portfolio-section {
+  border-bottom: none;
+  position: relative;
+}
+.theme-rs3 .portfolio-section::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(138, 105, 20, 0.3) 15%,
+    rgba(201, 162, 39, 0.7) 50%,
+    rgba(138, 105, 20, 0.3) 85%,
+    transparent 100%
+  );
+}
+
+/* Satisfactory: dashed tech line */
+.theme-satisfactory .portfolio-section {
+  border-bottom: none;
+  position: relative;
+}
+.theme-satisfactory .portfolio-section::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 6px,
+    rgba(26, 46, 66, 0.8) 6px,
+    rgba(26, 46, 66, 0.8) 12px
+  );
+}
+
+/* Warhammer: heavy brass gradient line */
+.theme-warhammer .portfolio-section {
+  border-bottom: none;
+  position: relative;
+}
+.theme-warhammer .portfolio-section::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(196, 146, 42, 0.2) 10%,
+    rgba(196, 146, 42, 0.6) 50%,
+    rgba(196, 146, 42, 0.2) 90%,
+    transparent 100%
+  );
+}
+
+/* ═══════════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════════ */
+
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+/* RS3: flanking rules */
+.theme-rs3 .section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+}
+.theme-rs3 .section-label::before,
+.theme-rs3 .section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-border), transparent);
+}
+.theme-rs3 .section-label::before {
+  background: linear-gradient(to left, var(--color-border), transparent);
+}
+.theme-rs3 .section-heading {
+  font-weight: 400;
+  text-shadow: 0 0 30px rgba(201, 162, 39, 0.15);
+}
+
+/* Satisfactory: HUD bracket + terminal cursor */
+.theme-satisfactory .section-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.theme-satisfactory .section-label::before { content: '//'; opacity: 0.4; }
+.theme-satisfactory .section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(232, 135, 10, 0.3), transparent);
+}
+.theme-satisfactory .section-heading {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.theme-satisfactory .section-heading::after {
+  content: '_';
+  color: var(--color-accent);
+  animation: cursor-blink 1.2s step-end infinite;
+}
+
+/* Warhammer: ornamental markers */
+.theme-warhammer .section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+.theme-warhammer .section-label::before { content: '✦'; opacity: 0.7; }
+.theme-warhammer .section-label::after { content: '✦'; opacity: 0.3; margin-left: 0.25rem; }
+.theme-warhammer .section-heading {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 40px rgba(196, 146, 42, 0.15);
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
+   PANELS — DEFAULT
+═══════════════════════════════════════ */
+
+.theme-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ═══════════════════════════════════════
+   PANELS — RS3
+   Classic double-border with corner rivets
+═══════════════════════════════════════ */
+
+.theme-rs3 .theme-panel {
+  border: 1px solid #8b6410;
+  /* outer dark trim → gap → secondary gold border */
+  box-shadow:
+    0 0 0 2px #080604,
+    0 0 0 3px rgba(138, 104, 16, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 28px rgba(0, 0, 0, 0.65);
+  /* gold corner rivets + warm gradient bg */
+  background-image:
+    radial-gradient(circle at 4px 4px,    #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at calc(100% - 4px) 4px,    #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at 4px calc(100% - 4px),    #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at calc(100% - 4px) calc(100% - 4px), #c9a227 0px, #c9a227 3px, transparent 3px),
+    linear-gradient(180deg, #221a0c 0%, #14100a 100%);
+}
+.theme-rs3 .theme-panel:hover {
+  box-shadow:
+    0 0 0 2px #080604,
+    0 0 0 3px rgba(201, 162, 39, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 40px rgba(201, 162, 39, 0.12);
+}
+
+/* ═══════════════════════════════════════
+   PANELS — SATISFACTORY
+   Octagonal cut corners + scan line
+═══════════════════════════════════════ */
+
+.theme-satisfactory .theme-panel {
+  position: relative;
+  border: 1px solid var(--color-border);
+  clip-path: polygon(
+    10px 0, calc(100% - 10px) 0,
+    100% 10px, 100% calc(100% - 10px),
+    calc(100% - 10px) 100%, 10px 100%,
+    0 calc(100% - 10px), 0 10px
+  );
+  background: linear-gradient(180deg, #0d1e30 0%, #070f18 100%);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* orange scan line at top */
+.theme-satisfactory .theme-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent 5%, #e8870a 30%, #e8870a 70%, transparent 95%);
+  z-index: 2;
+  pointer-events: none;
+}
+.theme-satisfactory .theme-panel:hover {
+  border-color: rgba(232, 135, 10, 0.5);
+  box-shadow: 0 0 20px rgba(232, 135, 10, 0.1), inset 0 0 20px rgba(232, 135, 10, 0.02);
+}
+
+/* card number (01 / 02 / 03) */
+.project-number {
+  display: none;
+}
+.theme-satisfactory .project-number {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+/* ═══════════════════════════════════════
+   PANELS — WARHAMMER
+   Heavy ornamental double border + corner runes
+═══════════════════════════════════════ */
+
+.theme-warhammer .theme-panel {
+  position: relative;
+  border: 2px solid rgba(196, 146, 42, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(58, 40, 8, 0.95),
+    inset 0 0 0 1px rgba(196, 146, 42, 0.05),
+    0 10px 40px rgba(0, 0, 0, 0.75);
+  /* corner rune dots + aged bg */
+  background-image:
+    radial-gradient(circle at 0px 0px,   #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 100% 0px,   #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 0px 100%,   #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 100% 100%,  #c4922a 0px, #c4922a 5px, transparent 5px),
+    linear-gradient(180deg, #0e1c0f 0%, #060d07 100%);
+}
+.theme-warhammer .theme-panel:hover {
+  border-color: rgba(196, 146, 42, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(58, 40, 8, 0.95),
+    0 0 30px rgba(196, 146, 42, 0.1),
+    0 10px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* ═══════════════════════════════════════
+   HERO PHOTO FRAME
+═══════════════════════════════════════ */
+
+.hero-photo-frame {
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 2px solid var(--color-border);
+}
+
+.theme-rs3 .hero-photo-frame {
+  border-radius: 0;
+  border: 1px solid #8b6410;
+  box-shadow:
+    0 0 0 2px #080604,
+    0 0 0 3px rgba(138, 104, 16, 0.55),
+    4px 4px 0 rgba(201, 162, 39, 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.7);
+  /* corner rivets on photo */
+  background-image:
+    radial-gradient(circle at 4px 4px, #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at calc(100% - 4px) 4px, #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at 4px calc(100% - 4px), #c9a227 0px, #c9a227 3px, transparent 3px),
+    radial-gradient(circle at calc(100% - 4px) calc(100% - 4px), #c9a227 0px, #c9a227 3px, transparent 3px);
+}
+
+.theme-satisfactory .hero-photo-frame {
+  border-radius: 0;
+  border: 1px solid var(--color-border);
+  clip-path: polygon(
+    16px 0, calc(100% - 16px) 0,
+    100% 16px, 100% calc(100% - 16px),
+    calc(100% - 16px) 100%, 16px 100%,
+    0 calc(100% - 16px), 0 16px
+  );
+  box-shadow: 0 0 0 1px rgba(232, 135, 10, 0.15), 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.theme-warhammer .hero-photo-frame {
+  border-radius: 0;
+  border: 2px solid rgba(196, 146, 42, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(58, 40, 8, 0.95),
+    6px 6px 0 rgba(196, 146, 42, 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.75);
+  background-image:
+    radial-gradient(circle at 0px 0px, #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 100% 0px, #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 0px 100%, #c4922a 0px, #c4922a 5px, transparent 5px),
+    radial-gradient(circle at 100% 100%, #c4922a 0px, #c4922a 5px, transparent 5px);
+}
+
+/* ═══════════════════════════════════════
+   GRADIENT HERO TEXT
+═══════════════════════════════════════ */
+
+.gradient-text {
+  background: linear-gradient(to right, #06b6d4, #99f6e4, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.theme-rs3 .gradient-text {
+  background: linear-gradient(to right, #c9a227, #ffe680, #c9a227);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.theme-satisfactory .gradient-text {
+  background: linear-gradient(to right, #e8870a, #ffb84d, #e8870a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.theme-warhammer .gradient-text {
+  background: linear-gradient(to right, #c4922a, #e8d060, #c4922a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════
+   HEADINGS — per-theme personality
+═══════════════════════════════════════ */
+
+/* RS3: heavier Cinzel, wider tracking */
+.theme-rs3 h1,
+.theme-rs3 h2 {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* Satisfactory: ALL CAPS, wider tracking */
+.theme-satisfactory h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: clamp(3rem, 8vw, 6.5rem) !important;
+}
+.theme-satisfactory h2 {
+  text-transform: uppercase;
+}
+
+/* Warhammer: imposing weight */
+.theme-warhammer h1,
+.theme-warhammer h2 {
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+/* ═══════════════════════════════════════
+   TECH BADGES
+═══════════════════════════════════════ */
+
+.tech-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.72rem;
+  background-color: var(--color-surface);
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+}
+
+.theme-satisfactory .tech-badge {
+  border-radius: 0;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.8rem;
+}
+
+.theme-warhammer .tech-badge {
+  border-radius: 0;
+  border-width: 1px;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+/* ═══════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════ */
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: var(--color-accent);
+  color: #000;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  background: transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.btn-ghost:hover { border-color: var(--color-accent); color: var(--color-text); transform: translateY(-1px); }
+
+/* RS3 buttons: gold bordered */
+.theme-rs3 .btn-primary {
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.theme-rs3 .btn-ghost {
+  border-radius: 0;
+  border-color: rgba(138, 105, 20, 0.5);
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.15);
+}
+.theme-rs3 .btn-ghost:hover {
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.4);
+}
+
+/* Satisfactory buttons: octagonal clip-path */
+.theme-satisfactory .btn-primary,
+.theme-satisfactory .btn-ghost {
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Warhammer buttons: heavy rectangular */
+.theme-warhammer .btn-primary {
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  box-shadow: 2px 2px 0 rgba(196, 146, 42, 0.2);
+}
+.theme-warhammer .btn-ghost {
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  border-color: rgba(196, 146, 42, 0.3);
+  box-shadow: 2px 2px 0 rgba(196, 146, 42, 0.1);
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR — per-theme chrome
+═══════════════════════════════════════ */
+
+/* RS3: gold accent bottom border on nav */
+.theme-rs3 nav {
+  border-bottom: 1px solid rgba(138, 105, 20, 0.3);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Satisfactory: orange left edge + technical label */
+.theme-satisfactory nav {
+  border-bottom: 1px dashed rgba(26, 46, 66, 0.8);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.theme-satisfactory nav::before {
+  content: 'PORTFOLIO_v1.0';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  opacity: 0.3;
+}
+
+/* Warhammer: brass bottom border */
+.theme-warhammer nav {
+  border-bottom: 1px solid rgba(196, 146, 42, 0.2);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ═══════════════════════════════════════
+   RS3 COMPONENT STYLES
+═══════════════════════════════════════ */
+
+.rs3-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  background: linear-gradient(to right, rgba(201,162,39,0.18), rgba(201,162,39,0.06));
+  border-bottom: 1px solid rgba(201,162,39,0.35);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.rs3-panel-close {
+  opacity: 0.4;
+  font-size: 0.7rem;
+  cursor: default;
+}
+.rs3-item-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: #ffe680;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+.rs3-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  padding: 0.18rem 0;
+  border-bottom: 1px solid rgba(201,162,39,0.07);
+  color: var(--color-muted);
+}
+.rs3-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,162,39,0.3), transparent);
+  margin: 0.6rem 0;
+}
+.rs3-examine-text {
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+.rs3-requirement-header {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.rs3-action-btn {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(201,162,39,0.4);
+  color: var(--color-accent);
+  background: rgba(201,162,39,0.06);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.rs3-action-btn:hover {
+  background: rgba(201,162,39,0.15);
+  border-color: var(--color-accent);
+}
+
+/* RS3 Skills panel */
+.rs3-skills-panel { overflow: hidden; }
+.rs3-skill-row {
+  display: grid;
+  grid-template-columns: 2rem 9rem 1fr 3.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(201,162,39,0.06);
+}
+.rs3-skill-icon { font-size: 1.25rem; display: flex; align-items: center; }
+.rs3-skill-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+.rs3-xp-bar-track {
+  height: 6px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(201,162,39,0.2);
+  overflow: hidden;
+}
+.rs3-xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #1565c0, #1e88e5, #26c6da);
+}
+.rs3-skill-level {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  color: var(--color-accent);
+  text-align: right;
+  white-space: nowrap;
+}
+.rs3-skills-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(201,162,39,0.06);
+  border-top: 1px solid rgba(201,162,39,0.25);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════
+   SATISFACTORY COMPONENT STYLES
+═══════════════════════════════════════ */
+
+.sat-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  background: rgba(232,135,10,0.08);
+  border-bottom: 1px solid rgba(232,135,10,0.25);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+}
+.sat-status-badge {
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: #4ade80;
+}
+.sat-node-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+.sat-section-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  opacity: 0.6;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+}
+.sat-schematic-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(232,135,10,0.4);
+  color: var(--color-accent);
+  background: rgba(232,135,10,0.06);
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+  transition: all 0.2s;
+}
+.sat-schematic-btn:hover { background: rgba(232,135,10,0.15); border-color: var(--color-accent); }
+
+/* Satisfactory Research Tree */
+.sat-research-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+.sat-research-tree {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.sat-tier-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 130px;
+}
+.sat-tier-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.sat-research-node {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+.sat-node-icon { font-size: 1.75rem; }
+.sat-node-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+.sat-node-unlocked {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.45rem;
+  letter-spacing: 0.12em;
+  color: #4ade80;
+}
+
+/* ═══════════════════════════════════════
+   WARHAMMER COMPONENT STYLES
+═══════════════════════════════════════ */
+
+.wh-codex-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  background: linear-gradient(to right, rgba(196,146,42,0.12), rgba(196,146,42,0.06), rgba(196,146,42,0.12));
+  border-bottom: 1px solid rgba(196,146,42,0.3);
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.wh-entry-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+.wh-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(196,146,42,0.4), transparent);
+  margin: 0.6rem 0;
+}
+.wh-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+.wh-action-btn {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(196,146,42,0.35);
+  color: var(--color-accent);
+  background: rgba(196,146,42,0.05);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.wh-action-btn:hover { background: rgba(196,146,42,0.12); border-color: var(--color-accent); }
+
+/* Warhammer Armory */
+.wh-armory-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+}
+.wh-wargear-item { cursor: default; }
+.wh-wargear-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: var(--color-text);
+  letter-spacing: 0.03em;
+}
+.wh-wargear-label {
+  font-size: 0.6rem;
+  color: var(--color-muted);
+  font-style: italic;
+  line-height: 1.3;
+  text-align: center;
+}
+.wh-wargear-approved {
+  font-family: 'Cinzel', serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.25em;
+  color: #c4922a;
+  opacity: 0.5;
+  border-top: 1px solid rgba(196,146,42,0.2);
+  padding-top: 0.35rem;
+  margin-top: 0.25rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════
+   CARD HOVER CUE
+═══════════════════════════════════════ */
+
+.card-view-more {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.group:hover .card-view-more { opacity: 1; }
+
+/* ═══════════════════════════════════════
+   PROJECT DETAIL PAGE
+═══════════════════════════════════════ */
+
+.detail-section {
+  margin-bottom: 5rem;
+}
+
+/* Back button */
+.detail-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+/* Status badges */
+.detail-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+.detail-badge-active {
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+.detail-badge-wip {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+.theme-satisfactory .detail-badge {
+  border-radius: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+}
+.theme-warhammer .detail-badge {
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+}
+
+/* Hero banner */
+.detail-hero {
+  overflow: hidden;
+}
+.detail-hero-img-wrapper {
+  position: relative;
+  height: 320px;
+}
+.detail-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-bg) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+}
+.detail-hero-content {
+  padding: 2rem 2rem 2.5rem;
+}
+.detail-hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+.detail-hero-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+/* Feature cards */
+.detail-feature-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+}
+.detail-feature-accent {
+  width: 3px;
+  flex-shrink: 0;
+  height: 100%;
+  min-height: 2rem;
+  background: var(--color-accent);
+  border-radius: 9999px;
+  opacity: 0.6;
+}
+.detail-feature-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+.detail-feature-desc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+/* Tech stack category */
+.detail-stack-category {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.theme-satisfactory .detail-stack-category {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.58rem;
+}
+.theme-warhammer .detail-stack-category {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+}
+
+/* Links */
+.detail-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.detail-link-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-surface-hover);
+}
+.theme-satisfactory .detail-link-btn {
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.theme-warhammer .detail-link-btn {
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+.theme-rs3 .detail-link-btn {
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+/* Video */
+.detail-video-wrapper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.detail-video-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
