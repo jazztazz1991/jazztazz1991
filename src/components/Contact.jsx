@@ -1,6 +1,6 @@
 import { CONTACT } from '../constants';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaLinkedin } from 'react-icons/fa';
 import SectionHeader from './SectionHeader';
 
 const Contact = () => {
@@ -25,18 +25,37 @@ const Contact = () => {
             <FaMapMarkerAlt style={{ color: 'var(--color-accent)' }} />
             {CONTACT.address}
           </p>
-          <p className='flex items-center gap-3'>
+          <a
+            href={`tel:${CONTACT.phoneNo.replace(/\D/g, '')}`}
+            className='flex items-center gap-3 transition-colors duration-200'
+            style={{ color: 'var(--color-muted)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted)')}
+          >
             <FaPhone style={{ color: 'var(--color-accent)' }} />
             {CONTACT.phoneNo}
-          </p>
+          </a>
           <a
             href={`mailto:${CONTACT.email}`}
-            className='mt-6 inline-block transition-colors duration-200'
-            style={{ color: 'var(--color-accent)', borderBottom: '1px solid var(--color-border)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderBottomColor = 'var(--color-accent)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderBottomColor = 'var(--color-border)')}
+            className='flex items-center gap-3 transition-colors duration-200'
+            style={{ color: 'var(--color-accent)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.75')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
           >
+            <span style={{ color: 'var(--color-accent)', fontSize: '1rem' }}>✉</span>
             {CONTACT.email}
+          </a>
+          <a
+            href='https://www.linkedin.com/in/jazztazz/'
+            target='_blank'
+            rel='noreferrer'
+            className='flex items-center gap-3 transition-colors duration-200'
+            style={{ color: 'var(--color-muted)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted)')}
+          >
+            <FaLinkedin style={{ color: 'var(--color-accent)', fontSize: '1rem' }} />
+            linkedin.com/in/jazztazz
           </a>
         </div>
       </motion.div>

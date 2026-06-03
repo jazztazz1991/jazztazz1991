@@ -32,9 +32,8 @@ const Navbar = () => {
             <FaGithub />
           </a>
         </div>
-        {/* Drop your resume PDF into /public/resume.pdf to enable this button */}
         <a
-          href='/resume.pdf'
+          href='/cody-chase-resume.pdf'
           download
           className='btn-ghost flex items-center gap-2 !py-1.5 !px-3 text-sm'
         >
