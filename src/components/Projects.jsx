@@ -14,6 +14,33 @@ const cardAnim = (index) => ({
 
 const stopProp = (e) => e.stopPropagation();
 
+/* ─── WIP placeholder card (all themes) ─── */
+const WIPCard = ({ project, index }) => (
+  <motion.div {...cardAnim(index)} className='theme-panel overflow-hidden rounded-xl'>
+    <div className='h-44 flex items-center justify-center' style={{ backgroundColor: 'var(--color-surface)' }}>
+      <div className='flex flex-col items-center gap-3'>
+        <motion.div
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className='w-3 h-3 rounded-full'
+          style={{ backgroundColor: 'var(--color-accent)' }}
+        />
+        <span className='text-xs uppercase tracking-widest' style={{ color: 'var(--color-muted)' }}>
+          In Development
+        </span>
+      </div>
+    </div>
+    <div className='p-5'>
+      <h3 className='font-semibold font-heading mb-2' style={{ color: 'var(--color-text)' }}>
+        {project.title}
+      </h3>
+      <p className='text-sm leading-relaxed' style={{ color: 'var(--color-muted)' }}>
+        {project.description}
+      </p>
+    </div>
+  </motion.div>
+);
+
 /* ─── Default ─── */
 const DefaultCard = ({ project, index, onClick }) => (
   <motion.div {...cardAnim(index)}
@@ -184,12 +211,14 @@ const Projects = () => {
       <SectionHeader label={section} title={title} />
       <div className='grid gap-6 lg:grid-cols-3'>
         {PROJECTS.map((project, index) => (
-          <Card
-            key={project.id}
-            project={project}
-            index={index}
-            onClick={() => navigate(`/project/${project.id}`)}
-          />
+          project.status === 'wip'
+            ? <WIPCard key={project.id} project={project} index={index} />
+            : <Card
+                key={project.id}
+                project={project}
+                index={index}
+                onClick={() => navigate(`/project/${project.id}`)}
+              />
         ))}
       </div>
     </section>

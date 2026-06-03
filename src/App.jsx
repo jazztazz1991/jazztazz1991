@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Technologies from './components/Technologies';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Contact from './components/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 
@@ -23,6 +24,7 @@ const Portfolio = () => (
       <Projects />
       <About />
       <Experience />
+      <Education />
       <Technologies />
       <Contact />
     </div>

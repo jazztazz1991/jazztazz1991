@@ -1,20 +1,23 @@
 import { RiReactjsLine } from 'react-icons/ri';
 import { TbBrandNextjs } from 'react-icons/tb';
-import { SiMongodb, SiExpress } from 'react-icons/si';
-import { FaNodeJs } from 'react-icons/fa';
+import { SiMongodb, SiExpress, SiPython, SiCplusplus } from 'react-icons/si';
+import { FaNodeJs, FaJava } from 'react-icons/fa';
 import { BiLogoPostgresql, BiLogoTailwindCss } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
 import { useTheme } from '../context/ThemeContext';
 
 const TECH = [
-  { icon: <RiReactjsLine />, name: 'React.js',    color: '#61dafb', level: 92, pct: 95, tier: 2 },
-  { icon: <TbBrandNextjs />, name: 'Next.js',     color: '#e5e5e5', level: 78, pct: 72, tier: 3 },
-  { icon: <SiMongodb />,     name: 'MongoDB',     color: '#47a248', level: 85, pct: 80, tier: 2 },
-  { icon: <BiLogoTailwindCss />, name: 'Tailwind', color: '#38bdf8', level: 88, pct: 85, tier: 1 },
-  { icon: <FaNodeJs />,      name: 'Node.js',     color: '#68a063', level: 90, pct: 92, tier: 2 },
-  { icon: <SiExpress />,     name: 'Express',     color: '#888888', level: 87, pct: 83, tier: 2 },
-  { icon: <BiLogoPostgresql />, name: 'PostgreSQL', color: '#336791', level: 82, pct: 76, tier: 3 },
+  { icon: <RiReactjsLine />,    name: 'React.js',   color: '#61dafb', level: 92, pct: 95 },
+  { icon: <TbBrandNextjs />,    name: 'Next.js',    color: '#e5e5e5', level: 78, pct: 72 },
+  { icon: <SiMongodb />,        name: 'MongoDB',    color: '#47a248', level: 85, pct: 80 },
+  { icon: <BiLogoTailwindCss />,name: 'Tailwind',   color: '#38bdf8', level: 88, pct: 85 },
+  { icon: <FaNodeJs />,         name: 'Node.js',    color: '#68a063', level: 90, pct: 92 },
+  { icon: <SiExpress />,        name: 'Express',    color: '#888888', level: 87, pct: 83 },
+  { icon: <BiLogoPostgresql />, name: 'PostgreSQL', color: '#336791', level: 82, pct: 76 },
+  { icon: <SiPython />,         name: 'Python',     color: '#3776ab', level: 72, pct: 65 },
+  { icon: <FaJava />,           name: 'Java',       color: '#f89820', level: 68, pct: 60 },
+  { icon: <SiCplusplus />,      name: 'C++',        color: '#00599c', level: 65, pct: 55 },
 ];
 
 const bounce = (duration) => ({
@@ -83,6 +86,7 @@ const SAT_TIERS = [
   { label: 'TIER 2', items: [TECH[0], TECH[4], TECH[5]] },
   { label: 'TIER 3', items: [TECH[2], TECH[6]] },
   { label: 'TIER 4', items: [TECH[1]] },
+  { label: 'TIER 5', items: [TECH[7], TECH[8], TECH[9]] },
 ];
 
 const SatTech = () => (
@@ -118,7 +122,8 @@ const SatTech = () => (
 /* ─── Warhammer: Chapter Armory ─── */
 const WH_WARGEAR_LABELS = [
   'Battle Interface', 'Shadow Operations', 'Data Corruption Protocol',
-  'Stealth Camouflage', 'Tactical Backend', 'Rapid Strike Module', 'Siege Engine'
+  'Stealth Camouflage', 'Tactical Backend', 'Rapid Strike Module', 'Siege Engine',
+  'Serpentine Script', 'Iron Codex Language', 'Machine Tongue',
 ];
 
 const WhTech = () => (

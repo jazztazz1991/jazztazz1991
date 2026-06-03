@@ -100,10 +100,10 @@ export const PROJECTS = [
   },
   {
     id: "coming-soon",
-    title: "Coming Soon",
-    image: project3,
+    title: "In Development",
+    image: null,
     description:
-      "The next project is in the works. Check back soon.",
+      "Next project currently in progress. Details coming soon.",
     technologies: [],
     github: null,
     demo: null,
@@ -113,6 +113,23 @@ export const PROJECTS = [
     links: [],
     videoUrl: null,
     status: "wip",
+  },
+];
+
+export const EDUCATION = [
+  {
+    year: "Jan 2025 - Present",
+    degree: "AS/BS: Computer Programming and Analysis",
+    school: "Valencia College",
+    location: "Orlando, FL",
+    note: "AS expected Summer 2026 · BS expected Spring 2028",
+  },
+  {
+    year: "Apr 2017 - Oct 2017",
+    degree: "Certificate in Full Stack Web Development",
+    school: "UCF Coding Bootcamp",
+    location: "Orlando, FL",
+    note: null,
   },
 ];
 
