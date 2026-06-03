@@ -2,42 +2,42 @@ import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 
-export const HERO_CONTENT = `Full stack developer based in Orlando, FL. I build web apps, help others learn to code, and spend way too much time in Runescape 3.`;
+export const HERO_CONTENT = `Full stack developer based in Orlando, FL. I build production-grade web applications end to end — most recently engineering portal infrastructure for a major hospitality company as an intern at Integris Group.`;
 
-export const ABOUT_TEXT = `My path to software wasn't the typical CS-degree route. I spent years in real estate and sales before deciding I'd rather build things than sell them. Enrolled in a bootcamp, fell in love with it, and never looked back.
+export const ABOUT_TEXT = `I started coding with a UCF bootcamp in 2017, then spent years building real skills while working in real estate and sales. That combination gave me something I see missing in a lot of devs — I can talk to stakeholders, understand business problems, and build software that actually solves them.
 
-Now I build full stack apps and help others learn to do the same — I've been a Teaching Assistant at EdX since 2021, which keeps me honest about what's actually hard to learn and why it matters.
+Over four years as Instructional Staff at EdX, I mentored hundreds of students through full-stack development and conducted in-depth code reviews across both the MERN and PERN stacks. Most recently I completed an engineering internship at Integris Group, where I shipped production Next.js / TypeScript / Azure SQL systems for a major hospitality company — including a capability matrix that replaced scattered conditional logic across six pages with a single domain function backed by 19 unit tests.
 
-Outside the editor I'm deep in Runescape 3, knee-deep in a Warhammer 40k build, planning the next PC, or out in the workshop. A few of those hobbies have turned into actual projects.`;
+Currently pursuing an AS/BS in Computer Programming and Analysis at Valencia College while building side projects and looking for my next full-time role.`;
 
 export const EXPERIENCES = [
   {
-    year: "2021 - Present",
-    role: "Teaching Assistant",
+    year: "Feb 2026 - May 2026",
+    role: "Agentic Engineer Intern",
+    company: "Integris Group",
+    description: "Rebuilt a customer self-service portal for a major hospitality company. Architected a single-source-of-truth owner-capability matrix (Next.js 16 / TypeScript / Prisma / Azure SQL) that drives booking, payment, and profile access — replacing scattered conditional logic across 6+ pages with a pure domain function backed by 19 unit tests. Also delivered admin observability tooling, session-bound impersonation cookies, and PII lockdown across all data-edit paths.",
+    technologies: ["Next.js 16", "TypeScript", "Prisma", "Azure SQL", "React"],
+  },
+  {
+    year: "Mar 2021 - Mar 2025",
+    role: "Instructional Staff",
     company: "EdX",
-    description: "Help students learn full stack web development — from HTML basics to full React/Node apps. Give feedback on projects, debug alongside students, and work with instructors to build course content.",
-    technologies: ["JavaScript", "React.js", "PostgreSQL", "MongoDB", "Node.js", "Express.js"],
+    description: "Facilitated student learning in full-stack web development with a focus on industry best practices. Provided technical instruction and mentorship in HTML, CSS, JavaScript, and the full MERN stack. Conducted detailed code reviews to identify bugs, enforce coding standards, and improve code quality.",
+    technologies: ["JavaScript", "React.js", "MongoDB", "Node.js", "Express.js", "PostgreSQL"],
   },
   {
-    year: "2022 - 2023",
-    role: "Central Grader",
+    year: "Dec 2022 - Sep 2023",
+    role: "Central Grading Staff",
     company: "EdX",
-    description: "Evaluated student projects across web development courses. Gave detailed, actionable feedback to help students improve — not just correct code, but understand why.",
-    technologies: ["JavaScript", "React.js", "PostgreSQL", "MongoDB", "Node.js", "Express.js"],
+    description: "Evaluated complex technical assignments across the full-stack bootcamp curriculum. Delivered high-precision feedback and debugged student submissions to provide specific, actionable instructions for improvement.",
+    technologies: ["JavaScript", "React.js", "MongoDB", "Node.js", "Express.js"],
   },
   {
-    year: "2020 - 2022",
-    role: "Cruise Sales Manager",
-    company: "Expedia Cruises Lake Nona",
-    description: "Managed a sales team, built out sales strategy, and ran product launches. This is where I learned that systems, communication, and iteration matter just as much in code as in sales.",
-    technologies: [],
-  },
-  {
-    year: "2019 - 2024",
-    role: "Real Estate Agent",
+    year: "Mar 2019 - Sep 2024",
+    role: "Realtor",
     company: "Kelly Price & Company",
-    description: "Helped clients buy, sell, and rent properties across Orlando. Built marketing sites to promote listings and attract buyers — first taste of building something real with code.",
-    technologies: ["React.js", "MongoDB", "Node.js", "Express.js"],
+    description: "Managed the full client lifecycle — lead generation, market analysis, and transaction management. Executed marketing strategies to list and sell residential properties, and built marketing sites to promote high-end listings.",
+    technologies: [],
   },
 ];
 
