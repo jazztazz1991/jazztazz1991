@@ -1,6 +1,12 @@
-import project1 from "../assets/projects/project-1.jpg";
-import project2 from "../assets/projects/project-2.jpg";
-import project3 from "../assets/projects/project-3.jpg";
+import rs3Hero from "../assets/projects/rs3-hero.png";
+import rs3DailyTasks from "../assets/projects/rs3-daily-tasks.png";
+import rs3Goals from "../assets/projects/rs3-goals.png";
+import rs3Skills from "../assets/projects/rs3-skills.png";
+import magpieHero from "../assets/projects/magpie-hero.png";
+import magpieProfit from "../assets/projects/magpie-profit.png";
+import magpieRefinery from "../assets/projects/magpie-refinery.png";
+import magpieShips from "../assets/projects/magpie-ships.png";
+import magpieTrade from "../assets/projects/magpie-trade.png";
 
 export const HERO_CONTENT = `Full stack developer based in Orlando, FL. I build production-grade web applications end to end — most recently engineering portal infrastructure for a major hospitality company as an intern at Integris Group.`;
 
@@ -45,7 +51,7 @@ export const PROJECTS = [
   {
     id: "rs3-hub",
     title: "RS3 Efficiency Hub",
-    image: project1,
+    image: rs3Hero,
     description:
       "A full-stack tool for RuneScape 3 players who want to play smarter. Pulls live data from Jagex Hiscores, visualizes progress toward goals like the Max Cape, and ranks daily activities by efficiency.",
     technologies: ["React", "Vite", "Node.js", "Express", "Jagex API"],
@@ -63,6 +69,11 @@ export const PROJECTS = [
       { category: "Backend", items: ["Node.js", "Express"] },
       { category: "APIs", items: ["Jagex Hiscores API"] },
     ],
+    gallery: [
+      { image: rs3Skills, caption: "XP Tracker — live skill levels and XP gains pulled from the Jagex Hiscores API" },
+      { image: rs3Goals, caption: "Endgame Goal Calculator — bottleneck analysis and estimated time to Max Cape" },
+      { image: rs3DailyTasks, caption: "Daily Tasks Tracker — star activities to pin them to your dashboard" },
+    ],
     links: [],
     videoUrl: null,
     status: "active",
@@ -70,7 +81,7 @@ export const PROJECTS = [
   {
     id: "magpie-sc",
     title: "Magpie Industries SC",
-    image: project2,
+    image: magpieHero,
     description:
       "A Star Citizen companion app for orgs, friend groups, and solo players. Full toolset: mining calculator, refinery optimizer, trade route planner, ship database, profit simulator, and more.",
     technologies: ["Next.js 15", "TypeScript", "PostgreSQL", "Prisma", "Express"],
@@ -93,6 +104,12 @@ export const PROJECTS = [
       { category: "Auth", items: ["NextAuth v5"] },
       { category: "Testing", items: ["Vitest", "Playwright"] },
       { category: "Infra", items: ["npm workspaces (monorepo)", "Render"] },
+    ],
+    gallery: [
+      { image: magpieTrade, caption: "Trade Route Planner — most profitable routes across Stanton by commodity and cargo size" },
+      { image: magpieRefinery, caption: "Refinery Optimizer — every refining method compared by yield, time, and net profit" },
+      { image: magpieProfit, caption: "Profit Simulator — activity comparison with break-even and 30-day projections" },
+      { image: magpieShips, caption: "Ship Database — side-by-side comparison of up to four ships with full specs" },
     ],
     links: [],
     videoUrl: null,

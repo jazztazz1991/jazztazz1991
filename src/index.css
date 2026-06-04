@@ -1185,3 +1185,36 @@ body {
   border: none;
   display: block;
 }
+
+/* Gallery */
+.detail-gallery-item {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin: 0;
+}
+.detail-gallery-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.detail-gallery-item:hover .detail-gallery-img {
+  transform: scale(1.03);
+}
+.detail-gallery-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+}
+.theme-satisfactory .detail-gallery-caption {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.theme-warhammer .detail-gallery-caption,
+.theme-rs3 .detail-gallery-caption {
+  font-family: 'Cinzel', serif;
+}

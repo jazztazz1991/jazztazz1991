@@ -108,4 +108,16 @@ The project cards use unrelated stock photos. Real screenshots of RS3 Hub and Ma
 - [x] Add Java, C++, Python to Technologies (all 4 theme variants)
 - [x] Fix About section whitespace — Option B (stat grid) kept
 - [x] Style "Coming Soon" card as intentional WIP teaser (pulsing dot, no image)
-- [ ] Replace placeholder project images (pending user providing screenshots)
+- [x] Replace placeholder project images (RS3 + Magpie heroes wired from real screenshots)
+
+### Project detail gallery (approved)
+User is capturing fresh screenshots in each source repo (RS3-Hub, MagpieIndustriesSC)
+via Playwright at 1600x900 viewport-only PNG. Each project will have a hero image plus
+4-5 feature shots. Gallery section approved; video section kept for later (no URLs yet).
+
+- [x] Scaffold gallery: add `gallery: []` to RS3 + Magpie project data (renders nothing while empty)
+- [x] Add theme-aware GallerySection to ProjectDetail.jsx (grid, follows existing inline-section pattern)
+- [x] Add gallery CSS to index.css
+- [x] Verify build passes with empty galleries (safe no-op)
+- [x] On image delivery: copied from each repo's portfolio-shots/ into src/assets/projects/, wired hero + 3-4 gallery shots per project
+- [x] Keep VideoSection in place (video URLs deferred per user)

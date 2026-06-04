@@ -159,6 +159,32 @@ const VideoSection = ({ videoUrl }) => {
   );
 };
 
+/* ─── Gallery section ─── */
+const GallerySection = ({ gallery }) => {
+  if (!gallery?.length) return null;
+
+  return (
+    <div className='detail-section'>
+      <SectionHeader label='Screenshots' title='Gallery' />
+      <div className='grid gap-5 sm:grid-cols-2'>
+        {gallery.map((shot, i) => (
+          <motion.figure
+            key={i}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4, delay: 0.08 * i }}
+            viewport={{ once: true }}
+            className='theme-panel detail-gallery-item'
+          >
+            <img src={shot.image} alt={shot.caption || 'Project screenshot'} className='detail-gallery-img' />
+            {shot.caption && <figcaption className='detail-gallery-caption'>{shot.caption}</figcaption>}
+          </motion.figure>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 /* ─── Coming Soon placeholder ─── */
 const ComingSoonDetail = ({ theme }) => (
   <div className='flex flex-col items-center justify-center py-32 text-center'>
@@ -249,6 +275,9 @@ const ProjectDetail = () => {
 
             {/* Features */}
             <FeaturesSection features={project.features} theme={theme} />
+
+            {/* Gallery */}
+            <GallerySection gallery={project.gallery} />
 
             {/* Tech Stack */}
             <TechStackSection techStack={project.techStack} theme={theme} />
